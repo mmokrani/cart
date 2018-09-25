@@ -1,4 +1,4 @@
-import {FETCH_PRODUCTS_SUCCESS, PRODUCTS_LOADING,PRODUCTS_HAS_ERROR} from '../constants';
+import {MINUS_PRODUCT_QTY_FROM_STORE, FETCH_PRODUCTS_SUCCESS, PRODUCTS_LOADING,PRODUCTS_HAS_ERROR} from '../constants';
 
 export const productsHasError = (hasError) => ({
     type: PRODUCTS_HAS_ERROR,
@@ -40,6 +40,11 @@ export const productsFetch = (url) => {
                 .catch(() => dispatch(productsHasError(true)));
     }
 };
+
+export const minusProductQtyFromStore = (productId) => ({
+    type: MINUS_PRODUCT_QTY_FROM_STORE,
+    productid: productId,
+});
 
 // Retourner une fonction au lieu d'un action grace à : reux-thunk
 export const errorAflterFiveSecond = () => {
